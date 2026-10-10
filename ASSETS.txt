@@ -1,0 +1,28 @@
+Изображения созданы встроенной генерацией изображений.
+Общий стиль: современные детские иллюстрации, мягкие формы, чистые контуры, нежная светотень, предмет целиком, прозрачный фон, без текста.
+
+balloon.png
+One single sky-blue inflated toy balloon with tied knot and a gently curved string. Recognizable as Russian ШАР, not a hot air balloon.
+
+steam.png
+A small cheerful yellow cup of hot water with three large clearly visible soft white and light blue curling wisps of STEAM rising above it, recognizable as ПАР. Steam is the main subject, cup secondary. No face.
+
+duck.png
+One cute yellow duck with orange bill and webbed feet, full body, standing in profile. Recognizable as УТКА.
+
+cat.png
+One cute friendly ginger male cat, full body, sitting upright, with tail, two ears and big kind eyes. Recognizable as КОТ.
+
+mouth.png
+One simple friendly human mouth only, closed pink lips slightly parted showing a small strip of white upper teeth. Recognizable as РОТ. No face or head, no lipstick glamor, no emoji look.
+
+rose.png
+One beautiful red rose flower on a green stem with two leaves. Recognizable as РОЗА. Entire flower and stem visible.
+
+deer.png
+One cute friendly brown deer with small antlers and big gentle eyes, full body with four legs, standing in profile. Recognizable as ОЛЕНЬ.
+
+branch.png
+One single leafy tree branch, brown branching twig with seven green leaves, isolated, easily recognizable as ВЕТКА. No tree, no vase, no flowers.
+
+background.png: светлый пастельный фон 16:9, пазлы и звёзды только по краям, свободный кремовый центр.

@@ -1,1 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Весёлые ребусы — 8 заданий</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#edf7ff;color:#24364d;font-family:Arial,sans-serif}button{font:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:4px solid #ffa72d;outline-offset:3px}button:disabled{cursor:default}.game{max-width:1050px;margin:auto;min-height:100dvh;padding:20px;display:flex;flex-direction:column;gap:18px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.round{border:0;border-radius:18px;background:#39aaf7;color:white;padding:12px 18px;font-size:25px;box-shadow:0 5px #208ad2}.progress{display:flex;gap:7px;justify-content:center}.dot{width:15px;height:15px;border-radius:50%;background:#cbdce9}.dot.done{background:#65c663}.dot.current{background:#39aaf7}h1{font-size:clamp(20px,3vw,30px);margin:0}.panel{flex:1;background:white;border-radius:28px;box-shadow:0 10px 30px #254b7210;padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px}.rebus{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:18px;min-height:180px}.part{display:flex;align-items:flex-start;gap:3px}.picture{font-size:clamp(70px,13vw,135px);line-height:1.35}.comma{font-family:Georgia,serif;font-size:clamp(50px,8vw,80px);line-height:1}.literal{font-size:clamp(38px,7vw,68px);font-weight:bold;color:#258cda;align-self:center}.plus{font-size:38px;color:#8fb0c9}.slots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.slot{width:clamp(38px,7vw,64px);height:clamp(45px,8vw,70px);border:2px solid #d2e5f2;border-radius:14px;background:#eff7fc;font-size:clamp(24px,4vw,38px);font-weight:bold;color:#24364d}.slot.hint{background:#fff0b8;border-color:#efc452}.letters{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;max-width:650px}.letter{width:clamp(44px,8vw,66px);height:clamp(50px,9vw,70px);background:white;border:2px solid #b9dff7;border-radius:15px;box-shadow:0 5px #cbe7f8;font-size:32px;font-weight:bold;color:#24364d}.letter:disabled{visibility:hidden}.status{min-height:26px;text-align:center;font-size:19px;max-width:700px}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.action{border:0;padding:14px 20px;border-radius:15px;background:#39aaf7;color:white;font-size:19px;font-weight:bold;box-shadow:0 4px #208ad2}.action.yellow{background:#ffc84b;color:#4b3d1d;box-shadow:0 4px #e8ae2b}.action.red{background:#ff7277;box-shadow:0 4px #df565b}.action.green{background:#60bf72;box-shadow:0 4px #459e55}.note{font-size:14px;color:#61788d;text-align:center;margin:0}.hidden{display:none!important}dialog{border:0;border-radius:24px;padding:28px;max-width:540px;width:calc(100% - 32px);color:#24364d;box-shadow:0 20px 80px #0003}dialog::backdrop{background:#24364d80}dialog h2{margin-top:0}dialog p{font-size:19px;line-height:1.55}.victory{text-align:center}.victory .big{font-size:100px}.victory h2{font-size:32px}@media(max-width:500px){.game{padding:12px;gap:14px}.panel{padding:18px 10px;gap:18px}.rebus{gap:9px;min-height:145px}.top .round{padding:9px 12px}.action{padding:12px 14px;font-size:17px}.plus{font-size:25px}}@media(prefers-reduced-motion:no-preference){.correct{animation:bounce .45s}@keyframes bounce{50%{transform:translateY(-8px)}}}
 
+/* Иллюстрированная версия */
+body{background:#f7f7ed url('images/background.png') center/cover fixed no-repeat}
+.game{max-width:1120px;padding:18px 24px;gap:14px}
+.top{background:#ffffffec;border:2px solid #fff;border-radius:24px;padding:12px 18px;box-shadow:0 5px 22px #4267820e}
+.top h1{color:#345674;letter-spacing:.2px}
+.panel{background:#ffffffee;border:2px solid #fff;box-shadow:0 10px 35px #688f9e18;border-radius:32px;padding:22px;gap:18px}
+.part{align-items:center;gap:3px}.comma{align-self:flex-start;margin-top:12px;color:#24364d;font-weight:bold;line-height:.7}
+.rebus{min-height:210px;gap:22px}.rebus-image{width:clamp(100px,20vw,225px);height:clamp(135px,24vw,230px);object-fit:contain;user-select:none}
+.literal{color:#3976a7}.plus{color:#b4c7cc}
+.slot{background:#f4f9fd;border-color:#c9dfe9}.slot.hint{background:#fff0b8;border-color:#efc452}
+.letter{border-color:#c3dfef;box-shadow:0 5px #c3dfef}.action,.round{background:#4fa4df;box-shadow:0 4px #3787bf}
+.note{padding:8px 14px;background:#ffffffd9;border-radius:15px;color:#53697b}
+@media(max-width:600px){.game{padding:10px;gap:10px}.top{padding:8px 10px;border-radius:20px}.panel{padding:18px 10px;gap:16px;border-radius:24px}.rebus{min-height:150px;gap:9px}.rebus-image{width:clamp(92px,28vw,145px);height:150px}.comma{font-size:45px;margin-top:14px}.literal{font-size:38px}.note{font-size:12px}}
+@media(min-width:700px) and (max-height:720px){.game{padding:10px 20px;gap:9px}.top{padding:8px 15px}.panel{padding:15px;gap:13px}.rebus{min-height:140px}.rebus-image{height:150px;width:160px}.letter{height:55px;width:55px;font-size:28px}.slot{height:54px;width:54px}.action{padding:11px 17px}.note{font-size:12px}.comma{font-size:60px}.literal{font-size:50px}}
+</style></head>
+<body>
+<main class="game">
+ <header class="top"><button class="round" id="help" aria-label="Правила">?</button><h1 id="level">Ребус 1 из 8</h1><button class="round" id="restart" aria-label="Начать заново">↻</button></header>
+ <div class="progress" id="progress" aria-label="Прогресс"></div>
+ <section class="panel" id="play">
+  <div class="rebus" id="rebus" aria-label="Картинки ребуса"></div>
+  <div class="slots" id="slots" aria-label="Буквы ответа"></div>
+  <div class="status" id="status" role="status" aria-live="polite">Назови картинки и собери слово.</div>
+  <div class="letters" id="letters" aria-label="Выбери буквы"></div>
+  <div class="actions"><button class="action yellow" id="hint">Открыть букву</button><button class="action red" id="clear">Очистить</button><button class="action" id="check">Проверить</button><button class="action green hidden" id="next">Дальше →</button></div>
+ </section>
+ <section class="panel victory hidden" id="victory"><div class="big">🏆</div><h2>Все ребусы разгаданы!</h2><p>Ты собрал восемь слов. Отличная работа!</p><button class="action" id="again">Играть ещё раз</button></section>
+ <p class="note">Запятая слева убирает первую букву, справа — последнюю. Каждая запятая убирает одну букву.</p>
+</main>
+<dialog id="rules"><h2>Как играть</h2><p>1. Назови каждую картинку.<br>2. Убери буквы, на которые указывают запятые.<br>3. Соедини оставшиеся части и добавь показанные буквы.<br>4. Нажимай на буквы внизу, чтобы собрать ответ.</p><p>Нажми на букву в ответе, чтобы убрать её. «Открыть букву» поможет, если трудно. Взрослый может прочитать подсказки ребёнку.</p><button class="action" id="closeRules">Понятно!</button></dialog>
+<script>
+'use strict';
+// Иллюстрации находятся в папке images. Пример пути: src:'images/cat.png'.
+const puzzles=[
+ {answer:'ШАРФ',parts:[{src:'images/balloon.png',word:'ШАР'}, {text:'Ф'}],explain:'ШАР + Ф = ШАРФ.'},
+ {answer:'ПАРК',parts:[{src:'images/steam.png',word:'ПАР'}, {text:'К'}],explain:'ПАР + К = ПАРК. На картинке — пар.'},
+ {answer:'УТОЧКА',parts:[{src:'images/duck.png',word:'УТКА',right:2},{text:'ОЧКА'}],explain:'УТКА без двух последних букв — УТ. УТ + ОЧКА = УТОЧКА.'},
+ {answer:'КОСА',parts:[{src:'images/cat.png',word:'КОТ',right:1},{text:'СА'}],explain:'КОТ без последней буквы — КО. КО + СА = КОСА.'},
+ {answer:'РОЗА',parts:[{src:'images/mouth.png',word:'РОТ',right:1},{text:'ЗА'}],explain:'РОТ без последней буквы — РО. РО + ЗА = РОЗА.'},
+ {answer:'ГРОЗА',parts:[{text:'Г'},{src:'images/rose.png',word:'РОЗА'}],explain:'Г + РОЗА = ГРОЗА.'},
+ {answer:'СТОЛ',parts:[{text:'СТ'},{src:'images/deer.png',word:'ОЛЕНЬ',right:3}],explain:'ОЛЕНЬ без трёх последних букв — ОЛ. СТ + ОЛ = СТОЛ.'},
+ {answer:'ОТВЕТ',parts:[{src:'images/cat.png',word:'КОТ',left:1},{src:'images/branch.png',word:'ВЕТКА',right:2}],explain:'КОТ без первой буквы — ОТ. ВЕТКА без двух последних букв — ВЕТ. ОТ + ВЕТ = ОТВЕТ.'}
+];
+const $=id=>document.getElementById(id);
+let level=0,bank=[],chosen=[],locked=[],solved=false;
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function makeBank(answer){return shuffle([...answer,...shuffle([... 'АБВГДЕИКЛМНОПРСТУ']).slice(0,Math.max(4,12-answer.length))]);}
+function status(message){$('status').textContent=message;}
+function render(){
+ $('slots').replaceChildren();$('letters').replaceChildren();
+ chosen.forEach((id,i)=>{const b=document.createElement('button');b.className='slot'+(locked[i]?' hint':'');b.textContent=id===null?'':bank[id];b.setAttribute('aria-label',`Место ${i+1}: ${id===null?'пусто':bank[id]}`);b.disabled=solved||locked[i];b.onclick=()=>{chosen[i]=null;status('Выбери другую букву.');render();};$('slots').append(b);});
+ bank.forEach((letter,id)=>{const b=document.createElement('button');b.className='letter';b.textContent=letter;b.disabled=solved||chosen.includes(id);b.onclick=()=>{const i=chosen.indexOf(null);if(i<0){status('Все клетки заполнены. Нажми «Проверить».');return;}chosen[i]=id;status(chosen.includes(null)?'Продолжай собирать слово.':'Слово собрано. Нажми «Проверить».');render();};$('letters').append(b);});
+ $('hint').disabled=solved||locked.every(Boolean);$('clear').disabled=solved;$('check').classList.toggle('hidden',solved);$('next').classList.toggle('hidden',!solved);
+}
+function startLevel(){
+ const p=puzzles[level];bank=makeBank(p.answer);chosen=Array(p.answer.length).fill(null);locked=Array(p.answer.length).fill(false);solved=false;
+ $('level').textContent=`Ребус ${level+1} из ${puzzles.length}`;$('progress').replaceChildren();
+ puzzles.forEach((_,i)=>{const d=document.createElement('span');d.className='dot'+(i<level?' done':i===level?' current':'');$('progress').append(d);});
+ $('rebus').replaceChildren();
+ p.parts.forEach((part,i)=>{if(i){const plus=document.createElement('span');plus.className='plus';plus.textContent='+';$('rebus').append(plus);}const box=document.createElement('div');box.className='part';
+ if(part.left){const c=document.createElement('span');c.className='comma';c.textContent=','.repeat(part.left);box.append(c);}
+ if(part.text){const t=document.createElement('span');t.className='literal';t.textContent=part.text;box.append(t);}else if(part.src){const img=document.createElement('img');img.src=part.src;img.alt=part.word;img.className='rebus-image';img.draggable=false;box.append(img);}else{const t=document.createElement('span');t.className='picture';t.textContent=part.icon;t.setAttribute('role','img');t.setAttribute('aria-label',part.word);box.append(t);}
+ if(part.right){const c=document.createElement('span');c.className='comma';c.textContent=','.repeat(part.right);box.append(c);}$('rebus').append(box);});
+ status('Назови картинки и собери слово.');render();
+}
+$('check').onclick=()=>{if(chosen.includes(null)){status('Заполни все клеточки.');return;}if(chosen.map(i=>bank[i]).join('')===puzzles[level].answer){solved=true;status('Верно! '+puzzles[level].explain);$('slots').classList.remove('correct');void $('slots').offsetWidth;$('slots').classList.add('correct');render();}else status('Пока не получилось. Проверь картинки и запятые.');};
+$('hint').onclick=()=>{const answer=puzzles[level].answer;let i=chosen.findIndex((id,j)=>!locked[j]&&(id===null||bank[id]!==answer[j]));if(i<0)i=locked.indexOf(false);if(i<0)return;chosen[i]=null;let id=bank.findIndex((c,j)=>c===answer[i]&&!chosen.includes(j));if(id<0){id=bank.findIndex((c,j)=>c===answer[i]&&chosen.some((v,k)=>v===j&&!locked[k]));const old=chosen.indexOf(id);if(old>=0)chosen[old]=null;}if(id<0)return;chosen[i]=id;locked[i]=true;status(puzzles[level].explain.split(' = ').slice(0,-1).join(' = ') + '. Подсказанная буква выделена жёлтым.');render();};
+$('clear').onclick=()=>{chosen=chosen.map((id,i)=>locked[i]?id:null);status('Собери слово ещё раз. Подсказанные буквы остаются.');render();};
+$('next').onclick=()=>{level++;if(level<puzzles.length)startLevel();else{$('play').classList.add('hidden');$('victory').classList.remove('hidden');$('level').textContent='Победа!';$('progress').querySelectorAll('.dot').forEach(d=>d.className='dot done');}};
+function restart(){level=0;$('play').classList.remove('hidden');$('victory').classList.add('hidden');startLevel();}
+$('restart').onclick=()=>{if(confirm('Начать все восемь ребусов заново?'))restart();};$('again').onclick=restart;
+$('help').onclick=()=>$('rules').showModal();$('closeRules').onclick=()=>$('rules').close();
+startLevel();$('rules').showModal();
+</script></body></html>
